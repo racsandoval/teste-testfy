@@ -35,6 +35,7 @@ const pdf_functions = {
 
 			var watcher;
 			const timeout = setTimeout(() => {
+				console.log(`disparo essa porra`);
 				if (watcher && watcher.close)
 				{
 					watcher.close();
