@@ -10,6 +10,7 @@ const Apis = (app) => {
 		const pathFile = `${__dirname}/../pdf/files/${req.body.user}.pdf`;
 		pdf.checkFile(pathFile)
 		.then((resp) => {
+			console.log(`WTF?`)
 			res.sendFile(path.resolve(pathFile));
 		})
 		.catch((err) => {
