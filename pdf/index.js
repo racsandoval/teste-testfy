@@ -47,12 +47,14 @@ const pdf_functions = {
 			watcher = fs.watch(dir, (event, filename) => {
 				if (filename === base) {
 					setTimeout (() => {
+						console.log('ta dentro');
+						console.log(watcher);
 						if (watcher) {
 							watcher.close();
 							clearTimeout(timeout);
 							resolve({status : 1});
 						}
-					}, 500);		
+					}, 200);		
 				}
 			});
 		})
