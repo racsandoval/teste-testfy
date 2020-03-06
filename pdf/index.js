@@ -42,9 +42,11 @@ const pdf_functions = {
 			const watcher = fs.watch(dir, (event, filename) => {
 				if (filename === base) {
 					setTimeout (() => {
-						clearTimeout(timeout);
-						watcher.close();
-						resolve({status : 1});
+						if (watcher) {
+							watcher.close();
+							clearTimeout(timeout);
+							resolve({status : 1});
+						}
 					}, 500);		
 				}
 			});
