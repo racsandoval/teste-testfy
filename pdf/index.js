@@ -43,7 +43,7 @@ const pdf_functions = {
 
 			const dir = path.dirname(filePath);
 			const base = path.basename(filePath);
-			watcher = fs.watch(dir, (event, filename) => {
+			const watcher = fs.watch(dir, (event, filename) => {
 				if (filename === base) {
 					setTimeout (() => {
 						if (watcher) {
