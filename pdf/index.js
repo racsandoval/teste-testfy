@@ -45,6 +45,9 @@ const pdf_functions = {
 
 			const dir = path.dirname(filePath);
 			const base = path.basename(filePath);
+			if (!fs.existsSync(dir)) {
+				fs.mkdirSync(dir);
+			}
 			watcher = fs.watch(dir, (event, filename) => {
 				if (filename === base) {
 					setTimeout (() => {
