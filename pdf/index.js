@@ -33,6 +33,14 @@ const pdf_functions = {
 	checkFile : (filePath) => {
 		return new Promise((resolve, reject) => {
 
+			const timeout = setTimeout(() => {
+				if (watcher && watcher.close)
+				{
+					watcher.close();
+					reject({status : 0, error: 'Timeout'});
+				}
+			}, 30000);
+
 			const dir = path.dirname(filePath);
 			const base = path.basename(filePath);
 			watcher = fs.watch(dir, (event, filename) => {
@@ -46,13 +54,6 @@ const pdf_functions = {
 					}, 500);		
 				}
 			});
-
-			const timeout = setTimeout(() => {
-				watcher.close();
-				reject({status : 0, error: 'Timeout'});
-			}, 30000);
-
-			
 		})
 	}
 }
