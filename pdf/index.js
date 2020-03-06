@@ -35,7 +35,6 @@ const pdf_functions = {
 
 			var watcher;
 			const timeout = setTimeout(() => {
-				console.log('ta no timeout');
 				if (watcher && watcher.close)
 				{
 					watcher.close();
@@ -51,8 +50,6 @@ const pdf_functions = {
 			watcher = fs.watch(dir, (event, filename) => {
 				if (filename === base) {
 					setTimeout (() => {
-						console.log('ta dentro');
-						console.log(watcher);
 						if (watcher) {
 							watcher.close();
 							clearTimeout(timeout);

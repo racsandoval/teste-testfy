@@ -33,7 +33,6 @@ $(document).ready(() => {
 				canSubmit = true;
 			},
 			error: (err) => {
-				console.log(err);
 				$(".err").text(err.error);
 				$('.success').hide();
 				$('.negative').show();
