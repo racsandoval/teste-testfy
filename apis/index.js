@@ -7,7 +7,7 @@ const Apis = (app) => {
 			res.send({error : "Um ou mais inputs estão faltando"});
 		}
 		pdf.create(pdf.template(req.body), req.body.user);
-		const pathFile = `${__dirname}/../pdf/files/${req.body.user}.pdf`;
+		const pathFile = `${__dirname}/../files/${req.body.user}.pdf`;
 		pdf.checkFile(pathFile)
 		.then((resp) => {
 			console.log(`WTF?`)
