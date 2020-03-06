@@ -14,6 +14,8 @@ const Apis = (app) => {
 			res.sendFile(path.resolve(pathFile));
 		})
 		.catch((err) => {
+			console.log('falhou no err');
+			console.log(err);
 			res.send({error : 'Timeout'});
 		})
 	});
